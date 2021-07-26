@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210312093514_Relationships2.cs" />
+    <Compile Remove="Migrations\20210312093514_Relationships2.Designer.cs" />
+    <Compile Remove="Migrations\20210313162716_Relationships3.cs" />
+    <Compile Remove="Migrations\20210313162716_Relationships3.Designer.cs" />
+    <Compile Remove="Migrations\20210314122726_EditHastaBigi.cs" />
+    <Compile Remove="Migrations\20210314122726_EditHastaBigi.Designer.cs" />
+    <Compile Remove="Migrations\20210314153552_EditHastaBilgi2.cs" />
+    <Compile Remove="Migrations\20210314153552_EditHastaBilgi2.Designer.cs" />
+    <Compile Remove="Migrations\20210316083405_AdresIlce.cs" />
+    <Compile Remove="Migrations\20210316083405_AdresIlce.Designer.cs" />
+    <Compile Remove="Migrations\20210322071931_EditDatabase1.cs" />
+    <Compile Remove="Migrations\20210322071931_EditDatabase1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jQuery" Version="3.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="toastr" Version="2.1.1" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+</Project>

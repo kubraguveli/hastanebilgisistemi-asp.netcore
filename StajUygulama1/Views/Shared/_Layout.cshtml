@@ -1,0 +1,75 @@
+﻿<!DOCTYPE
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="~/lib/toastr.js/toastr.min.js"></script>
+    <link href="~/lib/toastr.js/toastr.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    @RenderBody()
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+            $("#filter").submit(function () {
+                $(this).find(":input").filter(function () { return !this.value; }).attr("disabled", "disabled");
+                return true;
+            });
+
+            $("form").find(":input").prop("disabled", false);
+
+        });
+    </script>
+
+    <script>
+        $("#btn-takipbilgi").click(function () {
+            toastr.error("Bu fonksiyon şu anda aktif olarak çalışmamaktadır");
+        });
+
+        $("#btn-kaydet").click(function () {
+            var kimlikno = $("#kimlikno").val();
+            var dosyano = $("#dosyano").val();
+            var ad = $("#ad").val();
+            var soyad = $("#soyad").val();
+            if ((kimlikno == null || kimlikno == "") || (dosyano == null || dosyano == "") || (ad == null || ad == "") || (soyad == null || soyad == "")) {
+                toastr.error("Lütfen gerekli bilgileri giriniz");
+            }
+
+            else {
+                toastr.success("Kayıt işleminiz başarı ile gerçekleştirilmiştir.");
+            }
+        });
+
+    </script>
+
+    <script>
+        $('#dogumtarihi').change(function () {
+            var dakika = 1000 * 60;
+            var saat = dakika * 60;
+            var gun = saat * 24;
+            var yil = gun * 365;
+            var dogumt = new Date($('#dogumtarihi').val());
+            var bugun = new Date();
+            var fark = Math.abs(dogumt.getTime() - bugun.getTime());
+            var yas = Math.ceil(fark / yil);
+            var buguntarih = bugun.toLocaleString();
+            $('#muracaatt').val(buguntarih)
+            $('#yas').val(yas);
+        });
+    </script>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    @RenderSection("JavaScript", false)
+</body>
+</html>

@@ -1,0 +1,285 @@
+﻿@model StajUygulama1.Models.HastaBilgi
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container">
+    <br /><br />
+    <div class="bg-success text-white p-4" style="background-color:green">
+        Hasta Bilgileri Güncelleme
+    </div>
+
+
+    <div class="m-5" style="border: 1px solid #cecece;  border-radius: 5px;">
+        <form asp-action="Update" method="post" class="m-5">
+
+            <input type="hidden" name="original.Id" value="@Model.Id" />
+            <input type="hidden" name="original.KimlikNo" value="@Model.KimlikNo" />
+            <input type="hidden" name="original.Kodu" value="@Model.Kodu" />
+            <input type="hidden" name="original.DosyaNo" value="@Model.DosyaNo" />
+            <input type="hidden" name="original.Ad" value="@Model.Ad" />
+            <input type="hidden" name="original.Soyad" value="@Model.Soyad" />
+            <input type="hidden" name="original.Cinsiyet" value="@Model.Cinsiyet" />
+            <input type="hidden" name="original.Uyruk" value="@Model.Uyruk" />
+            <input type="hidden" name="original.BabaAdi" value="@Model.BabaAdi" />
+            <input type="hidden" name="original.AnneAdi" value="@Model.AnneAdi" />
+            <input type="hidden" name="original.DogumTarihi" value="@Model.DogumTarihi" />
+            <input type="hidden" name="original.DogumYeri" value="@Model.DogumYeri" />
+            <input type="hidden" name="original.Yas" value="@Model.Yas" />
+
+            <input type="hidden" name="original.AdresIletisimBilgi.AdresTuru" value="@Model.AdresIletisimBilgi?.AdresTuru" />
+            <input type="hidden" name="original.AdresIletisimBilgi.IlAd" value="@Model.AdresIletisimBilgi?.IlAd" />
+            <input type="hidden" name="original.AdresIletisimBilgi.IlceAd" value="@Model.AdresIletisimBilgi?.IlceAd" />
+            <input type="hidden" name="original.AdresIletisimBilgi.TelefonNo" value="@Model.AdresIletisimBilgi?.TelefonNo" />
+            <input type="hidden" name="original.AdresIletisimBilgi.TelefonTuru" value="@Model.AdresIletisimBilgi?.TelefonTuru" />
+            <input type="hidden" name="original.AdresIletisimBilgi.Adres" value="@Model.AdresIletisimBilgi?.Adres" />
+
+            <input type="hidden" name="original.HastaKabulBilgi.TakipBilgisi" value="@Model.HastaKabulBilgi?.TakipBilgisi" />
+            <input type="hidden" name="original.HastaKabulBilgi.HastaSinifi" value="@Model.HastaKabulBilgi?.HastaSinifi" />
+            <input type="hidden" name="original.HastaKabulBilgi.Kurumu" value="@Model.HastaKabulBilgi?.Kurumu" />
+            <input type="hidden" name="original.HastaKabulBilgi.KabulSekli" value="@Model.HastaKabulBilgi?.KabulSekli" />
+            <input type="hidden" name="original.HastaKabulBilgi.SigortaTuru" value="@Model.HastaKabulBilgi?.SigortaTuru" />
+            <input type="hidden" name="original.HastaKabulBilgi.VakaTipi" value="@Model.HastaKabulBilgi?.VakaTipi" />
+            <input type="hidden" name="original.HastaKabulBilgi.OncelikDurumu" value="@Model.HastaKabulBilgi?.OncelikDurumu" />
+            <input type="hidden" name="original.HastaKabulBilgi.Yakınlık" value="@Model.HastaKabulBilgi?.Yakınlık" />
+            <input type="hidden" name="original.HastaKabulBilgi.OdemeTuru" value="@Model.HastaKabulBilgi?.OdemeTuru" />
+            <input type="hidden" name="original.HastaKabulBilgi.SonGelisTarihi" value="@Model.HastaKabulBilgi?.SonGelisTarihi" />
+            <input type="hidden" name="original.HastaKabulBilgi.Servis" value="@Model.HastaKabulBilgi?.Servis" />
+            <input type="hidden" name="original.HastaKabulBilgi.Doktor" value="@Model.HastaKabulBilgi?.Doktor" />
+            <input type="hidden" name="original.HastaKabulBilgi.TriajBeyani" value="@Model.HastaKabulBilgi?.TriajBeyani" />
+            <input type="hidden" name="original.HastaKabulBilgi.Aciklama" value="@Model.HastaKabulBilgi?.Aciklama" />
+
+            <input type="hidden" name="original.HastaKabulBilgi.Id" value="@Model.HastaKabulBilgi?.Id" />
+            <input type="hidden" name="original.AdresIletisimBilgi.Id" value="@Model.AdresIletisimBilgi?.Id" />
+
+
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div style="background-color: #7DCFF0;color: white;">
+                        <h4 style="margin: 10px; font-family: sans-serif; font-weight: bold;">Hasta Bilgileri</h4>
+                    </div>
+                    <table border="0">
+                        <tr>
+                            <td>
+                                Kimlik No:
+                                <span asp-validation-for="KimlikNo" class="text-danger"></span>
+                            </td>
+                            <td><input class="form-control" id="kimlikno" asp-for="KimlikNo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Dosya No:
+                                <span asp-validation-for="DosyaNo" class="text-danger"></span>
+                            </td>
+                            <td><input class="form-control" id="dosyano" asp-for="DosyaNo"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Adı:
+                                <span asp-validation-for="Ad" class="text-danger"></span>
+                            </td>
+                            <td><input class="form-control" id="ad" asp-for="Ad"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Soyadı:
+                                <span asp-validation-for="Soyad" class="text-danger"></span>
+                            </td>
+                            <td><input class="form-control" id="soyad" asp-for="Soyad"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Cinsiyet: </td>
+                            <td>
+                                <select class="form-control" asp-for="Cinsiyet">
+                                    <option value="0">Kadın</option>
+                                    <option value="1">Erkek</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Uyruğu: </td>
+                            <td><input class="form-control" asp-for="Uyruk"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Baba Adı: </td>
+                            <td><input class="form-control" asp-for="BabaAdi"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Anne Adı: </td>
+                            <td><input class="form-control" asp-for="AnneAdi"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Doğum Yeri: </td>
+                            <td><input class="form-control" asp-for="DogumYeri"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Doğum Tarihi  : </td>
+                            <td><input type="date" class="form-control" asp-for="DogumTarihi"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Yaşı: </td>
+                            <td><input class="form-control" asp-for="Yas"> </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div class="col-md-2 col-sm-12">
+                    <div style="background-color: #7DCFF0; color: white;">
+                        <h4 style="margin: 10px; font-family: sans-serif; font-weight: bold;">Fotoğraf</h4>
+                    </div>
+                    <input style="height:300px;" type="file" class="form-control"><br />
+                    <button class="btn" style="background-color: #7DCFF0; ">Fotoğraf Yükle</button><br /><br />
+                    <button class="btn" style="background-color: #7DCFF0; ">Fotoğraf Sil</button>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <div style=" background-color: #7DCFF0; color: white;">
+                        <h4 style="margin: 10px; font-family: sans-serif; font-weight: bold;">Hasta Kabul Bilgileri</h4>
+                    </div>
+                    <table border="0">
+                        <tr>
+                            <td>Takip Bilgisi: </td>
+                            <td><input class="form-control" asp-for="HastaKabulBilgi.TakipBilgisi"></td>
+                            <td><buton type="button" id="btn-takipbilgi" class="btn btn-primary">Takip Bilgisi</buton></td>
+                        </tr>
+
+                        <tr>
+                            <td>Hasta Sınıfı: </td>
+                            <td><input style="width:260%" class="form-control" asp-for="HastaKabulBilgi.HastaSinifi"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Kurumu: </td>
+                            <td><input style="width:260%" class="form-control" asp-for="HastaKabulBilgi.Kurumu"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Kabul Şekli: </td>
+                            <td><input style="width:260%" class="form-control" asp-for="HastaKabulBilgi.KabulSekli"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Sigorta Türü: </td>
+                            <td><input class="form-control" asp-for="HastaKabulBilgi.SigortaTuru"> </td>
+                            <td>Yakınlığı: </td>
+                            <td><input class="form-control" asp-for="HastaKabulBilgi.Yakınlık"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Vaka Tipi: </td>
+                            <td><input class="form-control" asp-for="HastaKabulBilgi.VakaTipi"> </td>
+                            <td>Ödeme Türü: </td>
+                            <td><input class="form-control" asp-for="HastaKabulBilgi.OdemeTuru"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>Öncelik Durumu: </td>
+                            <td><input class="form-control" asp-for="HastaKabulBilgi.OncelikDurumu"> </td>
+                            <td>Son Geliş Tarihi: </td>
+                            <td><input class="form-control" asp-for="HastaKabulBilgi.SonGelisTarihi"> </td>
+                        </tr>
+                    </table>
+                    <br />
+
+                    <div style="background-color: #7DCFF0; color: white;">
+                        <h4 style="margin: 10px; font-family: sans-serif; font-weight: bold;">Poliklinik Bilgileri</h4>
+                    </div>
+                    <table border="0">
+                        <tr>
+                            <td>Servisi : </td>
+                            <td><input style="width:190%" class="form-control" asp-for="HastaKabulBilgi.Servis"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Doktoru: </td>
+                            <td><input style="width:190%" class="form-control" asp-for="HastaKabulBilgi.Doktor"> </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div style="background-color: #7DCFF0; color: white;">
+                        <h4 style="margin: 10px; font-family: sans-serif; font-weight: bold;">Adres Ve İletişim Bilgileri</h4>
+                    </div>
+
+                    <table border="0">
+                        <tr>
+                            <td>Adres Türü: </td>
+                            <td><input style="width:244%" class="form-control" asp-for="AdresIletisimBilgi.AdresTuru"></td>
+                        </tr>
+                        <tr>
+                            <td>İl: </td>
+                            <td>
+                                <select name="il" id="il" class="form-control" asp-for="AdresIletisimBilgi.IlAd">
+                                    <option value="">Seçin...</option>
+                                    <option value="0">İstanbul</option>
+                                    <option value="1">Rize</option>
+                                </select>
+                            </td>
+                            <td>İlçe: </td>
+                            <td>
+                                <select name="ilce" id="ilce" class="form-control" asp-for="AdresIletisimBilgi.IlceAd">
+                                    <option value="">Seçin...</option>
+                                    <option value="0">Kadıköy</option>
+                                    <option value="1">İkizdere</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Telefon Türü: </td>
+                            <td><input class="form-control" asp-for="AdresIletisimBilgi.TelefonTuru"> </td>
+                            <td>Telefon No: </td>
+                            <td><input class="form-control" asp-for="AdresIletisimBilgi.TelefonNo"> </td>
+                        </tr>
+                        <tr>
+                            <td>Adres: </td>
+                            <td><input style="width:244%" class="form-control" asp-for="AdresIletisimBilgi.Adres"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <div style="background-color: #7DCFF0; color: white;">
+                        <h4 style="margin: 10px; font-family: sans-serif; font-weight: bold;">Ek Bilgiler</h4>
+                    </div>
+
+                    <table border="0">
+                        <tr>
+                            <td>Triaj Beyanı: </td>
+                            <td><input style="width:177%" class="form-control" asp-for="HastaKabulBilgi.TriajBeyani"></td>
+                        </tr>
+                        <tr>
+                            <td>Açıklama: </td>
+                            <td><input style="width:177%;height: 100px;" class="form-control" asp-for="HastaKabulBilgi.Aciklama"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-md">Submit</button>
+        </form>
+    </div>
+
+
+</div>
+
+@section JavaScript{
+    <script src="~/lib/jquery-validation//dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

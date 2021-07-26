@@ -1,0 +1,84 @@
+﻿@using StajUygulama1.Models;
+@model IEnumerable<StajUygulama1.Models.HastaBilgi>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="container">
+    <br />
+    <div >
+        <h3 style="background-color: #7DCFF0;color: white;"> Hasta Listesi</h3>
+    </div>
+
+    <div class="card my-2">
+        <div class="card-body" style="width:500px">
+            <form method="get" id="filter">
+                <div class="form-group">
+                    <input name="tcno" class="form-control" placeholder="Kimlik No" value="@ViewBag.KimlikNo" />
+                </div>
+
+                <div class="form-group">
+                    <input name="ad" class="form-control" placeholder="Adı" value="@ViewBag.Ad" />
+                </div>
+
+                <div class="form-group">
+                    <input name="soyad" class="form-control" placeholder="Soyadı" value="@ViewBag.Soyad" />
+                </div>
+
+
+                <button class="btn btn-primary">Filter</button>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped" m-5>
+        <thead>
+            <tr>
+                <th>Kodu</th>
+                <th>Kimlik No</th>
+                <th>Dosya No</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Baba Adı</th>
+                <th>Anne Adı</th>
+                <th>Doktor</th>
+                <th></th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.SilinmeTarih == null)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.KimlikNo</td>
+                        <td>@item.DosyaNo</td>
+                        <td>@item.Ad</td>
+                        <td>@item.Soyad</td>
+                        <td>@item.BabaAdi</td>
+                        <td>@item.AnneAdi</td>
+                        <td>@item.HastaKabulBilgi?.Doktor</td>
+                        <td>
+                            <form asp-action="Delete" method="post">
+                                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Update</a>
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+
+
+                    </tr>
+
+                }
+
+            }
+        </tbody>
+    </table>
+    <a  asp-action="AddHasta" class="btn btn-primary">
+        Yeni Kayıt
+    </a>
+</div>
